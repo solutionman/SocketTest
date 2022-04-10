@@ -23,9 +23,10 @@ int main(int argc, char *argv[]){
     for(i = 0; addr_list[i] != NULL; i++){
         // return first
         strcpy(ip, inet_ntoa(*addr_list[i]) );
+        printf( "%s resolved to : %s\n", hostname, ip );
     }
     
-    printf( "%s resolved to : %s", hostname, ip );
+    // printf( "%s resolved to : %s", hostname, ip );
     return 0;
 }
 
