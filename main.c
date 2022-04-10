@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<sys/socket.h>
 #include<arpa/inet.h>
+#include<string.h>
 
 //  https://www.binarytides.com/socket-programming-c-linux-tutorial/
 
@@ -30,10 +31,30 @@ int main(int argc, char *argv[]){
         return 1;
     }
     
-    printf("");
-    puts("connected");
+    puts("connected \n");
+    
+    // sending some data
+    char *message;    
+    message = "GET / HTTP/1.1\r\n\r\n";
+    if(send(socket_desc, message, strlen(message), 0 ) < 0 ) {
+        puts("send failed");
+        return 1;
+    }
+    
+    puts("data send\n");
+    
+    // receive a reply
+    char server_reply[2000];
+    if( recv(socket_desc, server_reply, 2000, 0 ) < 0 ){
+        puts("recv failed");
+    }
+    
+    puts("reply received\n");
+    puts(server_reply);
     
     return 0;
 }
+
+
 
 
