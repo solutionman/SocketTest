@@ -21,7 +21,8 @@ int main(int argc, char *argv[]){
     
     
     struct sockaddr_in server;
-    server.sin_addr.s_addr = inet_addr("64.233.165.138"); // ping google.com   64.233.165.138
+    // ping google.com   64.233.165.138
+    server.sin_addr.s_addr = inet_addr("64.233.165.138"); 
     server.sin_family = AF_INET;
     server.sin_port = htons(80);
     
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]){
     
     // receive a reply
     char server_reply[2000];
-    if( recv(socket_desc, server_reply, 2000, 0 ) < 0 ){
+    if( recv(socket_desc, server_reply, 2000, 0 ) < 0 ) {
         puts("recv failed");
     }
     
