@@ -4,7 +4,8 @@
 #include<netdb.h> // hostent
 #include<arpa/inet.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
+    
     char *hostname = "www.google.com";
     char ip[100];
     struct hostent *he;
@@ -20,13 +21,11 @@ int main(int argc, char *argv[]){
     
     // cast h_addr_list to in_addr
     int i;
-    for(i = 0; addr_list[i] != NULL; i++){
-        // return first
+    for(i = 0; addr_list[i] != NULL; i++) {
         strcpy(ip, inet_ntoa(*addr_list[i]) );
         printf( "%s resolved to : %s\n", hostname, ip );
     }
     
-    // printf( "%s resolved to : %s", hostname, ip );
     return 0;
 }
 
