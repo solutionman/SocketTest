@@ -5,7 +5,7 @@
 
 //  https://www.binarytides.com/socket-programming-c-linux-tutorial/
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
     int socket_desc;
     
     // Address Family - AF_INET (this is IP version 4) 
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
     // Protocol - 0 [ or IPPROTO_IP This is IP protocol]
     socket_desc = socket(AF_INET, SOCK_STREAM, 0);
     
-    if(socket_desc == -1){
+    if(socket_desc == -1) {
         printf("Could not create socket \n");
     } else {
         printf("Socket created \n");
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
     server.sin_port = htons(80);
     
     // connect to remote server
-    if(connect(socket_desc, (struct sockaddr *)&server, sizeof(server) ) < 0 ){
+    if(connect(socket_desc, (struct sockaddr *)&server, sizeof(server) ) < 0 ) {
         puts("connection error");
         return 1;
     }
