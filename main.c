@@ -2,10 +2,14 @@
 #include<sys/socket.h>
 #include<arpa/inet.h>
 #include<string.h>
+#include "pingTest.c"
 
 //  https://www.binarytides.com/socket-programming-c-linux-tutorial/
 
 int main(int argc, char *argv[]) {
+
+    pingTest();
+
     int socket_desc;
 
     // Address Family - AF_INET (this is IP version 4)
@@ -23,7 +27,7 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server;
     // ping google.com   64.233.165.138
     // or getting ip from pingTest 74.125.131.99
-    server.sin_addr.s_addr = inet_addr("74.125.131.99");
+    server.sin_addr.s_addr = inet_addr("64.233.165.103");
     server.sin_family = AF_INET;
     server.sin_port = htons(80);
 

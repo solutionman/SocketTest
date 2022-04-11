@@ -4,7 +4,8 @@
 #include<netdb.h> // hostent
 #include<arpa/inet.h>
 
-int main(int argc, char *argv[]) {
+//int main() {
+int pingTest() {
 
     char *hostname = "www.google.com";
     char ip[100];
