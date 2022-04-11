@@ -8,6 +8,11 @@
 
 int main(int argc, char *argv[]) {
 
+    char url[100];
+    printf("Enter url: ");
+    scanf("%s", url);
+//    printf("you entered %s\n\n", url);
+
     pingTest();
 
     int socket_desc;
@@ -27,7 +32,7 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server;
     // ping google.com   64.233.165.138
     // or getting ip from pingTest 74.125.131.99
-    server.sin_addr.s_addr = inet_addr("64.233.165.103");
+    server.sin_addr.s_addr = inet_addr("173.194.73.101");
     server.sin_family = AF_INET;
     server.sin_port = htons(80);
 
