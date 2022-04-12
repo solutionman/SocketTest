@@ -7,7 +7,11 @@
 //int main() {
 int pingTest() {
 
-    char *hostname = "www.google.com";
+    char url[100];
+    printf("Enter url: ");
+    scanf("%s", url);
+
+    char *hostname = url;
     char ip[100];
     struct hostent *he;
     struct in_addr **addr_list;

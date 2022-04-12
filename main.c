@@ -8,9 +8,9 @@
 
 int main(int argc, char *argv[]) {
 
-    char url[100];
-    printf("Enter url: ");
-    scanf("%s", url);
+//    char url[100];
+//    printf("Enter url: ");
+//    scanf("%s", url);
 //    printf("you entered %s\n\n", url);
 
     pingTest();
