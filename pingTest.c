@@ -31,7 +31,7 @@ int pingTest() {
         printf("%s resolved to : %s\n", hostname, ip);
     }
 
-    printf("%s\n", ip);
+//    printf("%s\n", ip);
 
     return 0;
 }
