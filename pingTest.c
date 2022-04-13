@@ -4,8 +4,8 @@
 #include<netdb.h> // hostent
 #include<arpa/inet.h>
 
-//int main() {
-int pingTest() {
+int main() {
+//int pingTest() {
 
     char url[100];
     printf("Enter url: ");

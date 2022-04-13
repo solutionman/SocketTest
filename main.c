@@ -2,7 +2,8 @@
 #include<sys/socket.h>
 #include<arpa/inet.h>
 #include<string.h>
-#include "pingTest.c"
+#include<netdb.h>
+//#include "pingTest.c"
 
 //  https://www.binarytides.com/socket-programming-c-linux-tutorial/
 
