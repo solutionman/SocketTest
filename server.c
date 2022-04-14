@@ -1,5 +1,8 @@
 #include <netinet/in.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include<arpa/inet.h>
 
 /*
  * run as client:
@@ -8,6 +11,7 @@
 int main() {
     int socket_desc, new_socket, c;
     struct sockaddr_in server, client;
+
 
     socket_desc = socket(AF_INET, SOCK_STREAM, 0);
     if (socket_desc == -1) {
@@ -33,6 +37,14 @@ int main() {
     } else {
         puts("connection accepted");
     }
+
+    char *client_ip = inet_ntoa(client.sin_addr);
+    int client_port = htons(client.sin_port);
+    printf("client ip: %d", client_port);
+
+    char *message;
+    message = "hello from server\n";
+    write(new_socket, message, strlen(message));
 
     return 0;
 }
