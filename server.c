@@ -40,7 +40,8 @@ int main() {
 
     char *client_ip = inet_ntoa(client.sin_addr);
     int client_port = htons(client.sin_port);
-    printf("client ip: %d", client_port);
+    printf("client ip: %s \n", client_ip);
+    printf("client port: %d \n", client_port);
 
     char *message;
     message = "hello from server\n";
