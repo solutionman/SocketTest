@@ -31,21 +31,28 @@ int main() {
 
     puts("waiting for incoming connection...");
     c = sizeof(struct sockaddr_in);
-    new_socket = accept(socket_desc, (struct sockaddr *) &client, (socklen_t *) &c);
-    if (new_socket < 0) {
-        perror("accept failed");
-    } else {
+//    new_socket = accept(socket_desc, (struct sockaddr *) &client, (socklen_t *) &c);
+//    if (new_socket < 0) {
+//        perror("accept failed");
+//    } else {
+//        puts("connection accepted");
+//    }
+    while ((new_socket = accept(socket_desc, (struct sockaddr *) &client, (socklen_t *) &c))) {
         puts("connection accepted");
+        char *client_ip = inet_ntoa(client.sin_addr);
+        int client_port = htons(client.sin_port);
+        printf("client ip: %s \n", client_ip);
+        printf("client port: %d \n", client_port);
+
+        char *message;
+        message = "hello from server\n";
+        write(new_socket, message, strlen(message));
     }
 
-    char *client_ip = inet_ntoa(client.sin_addr);
-    int client_port = htons(client.sin_port);
-    printf("client ip: %s \n", client_ip);
-    printf("client port: %d \n", client_port);
-
-    char *message;
-    message = "hello from server\n";
-    write(new_socket, message, strlen(message));
+    if (new_socket < 0) {
+        perror("accept failed");
+        return 1;
+    }
 
     return 0;
 }
