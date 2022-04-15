@@ -6,7 +6,7 @@
 
 /*
  * run as client:
- * telnet localhost 8888
+ * telnet localhost 7777
  */
 int main() {
     int socket_desc, new_socket, c;
@@ -19,10 +19,11 @@ int main() {
     }
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(8888);
+    server.sin_port = htons(7777);
 
     if (bind(socket_desc, (struct sockaddr *) &server, sizeof(server)) < 0) {
         puts("bind failed");
+        return 0;
     } else {
         puts("bind done");
         char *server_ip = inet_ntoa(server.sin_addr);
