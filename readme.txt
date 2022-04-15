@@ -5,6 +5,7 @@ gcc server.c -o server
 in another terminal:
 gcc client.c -o client
 ./client 127.0.0.1
+./client 0.0.0.0
 
 to see both server and client are running:
 sudo lsof -i -P -n

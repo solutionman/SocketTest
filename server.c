@@ -25,6 +25,10 @@ int main() {
         puts("bind failed");
     } else {
         puts("bind done");
+        char *server_ip = inet_ntoa(server.sin_addr);
+        printf("my ip: %s\n", server_ip);
+        int server_port = htons(server.sin_port);
+        printf("my port: %d\n", server_port);
     }
 
     listen(socket_desc, 3);
