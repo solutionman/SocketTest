@@ -42,6 +42,7 @@ int main() {
 //    } else {
 //        puts("connection accepted");
 //    }
+    char buff[1000];
     while ((new_socket = accept(socket_desc, (struct sockaddr *) &client, (socklen_t *) &c))) {
         puts("connection accepted");
         char *client_ip = inet_ntoa(client.sin_addr);
@@ -52,6 +53,10 @@ int main() {
         char *message;
         message = "hello from server\n";
         write(new_socket, message, strlen(message));
+
+        bzero(buff, 1000);
+        read(new_socket, buff, sizeof buff);
+        printf("from client: %s", buff);
     }
 
     if (new_socket < 0) {

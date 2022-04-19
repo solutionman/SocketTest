@@ -13,6 +13,7 @@
  *  usage:
  *  gcc client.c -o client
  *  ./client 127.0.0.1
+ *  ./client 0.0.0.0
  */
 int main(int argc, char *argv[]) {
     int sockfd = 0, n = 0;
@@ -47,6 +48,9 @@ int main(int argc, char *argv[]) {
 
     while ((n = read(sockfd, recvBuff, sizeof(recvBuff) - 1)) > 0) {
         recvBuff[n] = 0;
+        char *message;
+        message = "hello from client\n";
+        write(sockfd, message, strlen(message));
         if (fputs(recvBuff, stdout) == EOF) {
             printf("\n Error : Fputs error\n");
         }
