@@ -7,5 +7,6 @@ add_executable(SocketTest
 #        main.c
 #        pingTest.c
 #        server.c
-        client.c
+#        client.c
+        loop.c
         )
